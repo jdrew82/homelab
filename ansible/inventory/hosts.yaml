@@ -1,0 +1,14 @@
+---
+kubernetes:
+  children:
+    master:
+      hosts:
+        k3s-pve:
+          ansible_user: root
+          ansible_host: 192.168.100.10
+        k3s-node1:
+          ansible_user: root
+          ansible_host: 192.168.100.3
+        k3s-node2:
+          ansible_user: root
+          ansible_host: 192.168.100.4
