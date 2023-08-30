@@ -38,7 +38,7 @@ Before we get started everything below must be taken into consideration, you mus
 
 ### System requirements
 
-📍 _k3s default behaviour is that all nodes are able to run workloads, including contol nodes. Worker nodes are therefore optional._
+📍 _k3s default behaviour is that all nodes are able to run workloads, including control nodes. Worker nodes are therefore optional._
 
 📍 _If you have 3 or more nodes it is strongly recommended to make 3 of them control nodes for a highly available control plane._
 

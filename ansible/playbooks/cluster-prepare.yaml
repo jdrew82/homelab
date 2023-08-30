@@ -52,7 +52,7 @@
             content: |
               127.0.0.1 localhost
               127.0.1.1 {{ inventory_hostname }}
-              {{ ansible_host }} {{ intentory_hostname }}
+              {{ ansible_host }} {{ inventory_hostname }}
               # The following lines are desirable for IPv6 capable hosts
               ::1     localhost ip6-localhost ip6-loopback
               ff02::1 ip6-allnodes
@@ -84,6 +84,7 @@
             name: apparmor
             state: stopped
             masked: true
+          delegate_to: "k3s-pve"
         - name: System Configuration | Disable swap
           ansible.posix.mount:
             name: "{{ item }}"

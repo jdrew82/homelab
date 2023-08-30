@@ -6,6 +6,8 @@ kubernetes:
         k3s-pve:
           ansible_user: root
           ansible_host: 192.168.100.10
+    worker:
+      hosts:
         k3s-node1:
           ansible_user: root
           ansible_host: 192.168.100.3
