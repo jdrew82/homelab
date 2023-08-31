@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: pihole-k8s
+  name: pihole
   namespace: networking
 spec:
   interval: 15m
@@ -60,10 +60,10 @@ spec:
       enabled: true
       existingClaim: pihole-data
       accessModes:
-        - ReadWriteMany
+        - ReadWriteOnce
       size: "2Gi"
     extraEnvVars:
-      TZ: "Europe/Chicago"
+      TZ: "America/Chicago"
       WEBPASSWORD: ${PIHOLE_PASSWORD}
     DNS1: "1.1.1.1"
     DNS2: "1.0.0.2"
