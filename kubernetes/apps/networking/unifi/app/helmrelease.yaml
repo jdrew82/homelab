@@ -44,7 +44,7 @@ spec:
         enabled: true
         annotations:
           nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-        ingressClassName: "nginx"
+        ingressClassName: "internal"
         hosts:
           - host: "unifi.${SECRET_DOMAIN}"
             paths:
