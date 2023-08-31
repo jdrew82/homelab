@@ -58,7 +58,7 @@ spec:
             - "pihole.${SECRET_DOMAIN}"
     persistentVolumeClaim:
       enabled: true
-      existingClaim: pihole-data-v1
+      existingClaim: pihole-data
       accessModes:
         - ReadWriteMany
       size: "2Gi"
