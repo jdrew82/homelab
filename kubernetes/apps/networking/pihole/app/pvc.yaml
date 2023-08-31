@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pihole-data-v1
+  name: pihole-data
   namespace: networking
   labels:
-    app.kubernetes.io/name: &name pihole-k8s
+    app.kubernetes.io/name: &name pihole
     app.kubernetes.io/instance: *name
 spec:
   accessModes:
@@ -14,4 +14,4 @@ spec:
     requests:
       storage: 2Gi
   storageClassName: local-path
-  mountPath: /pihole
+
