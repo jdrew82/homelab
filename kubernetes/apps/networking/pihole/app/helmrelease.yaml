@@ -52,7 +52,7 @@ spec:
       enabled: true
       ingressClassName: internal
       hosts:
-        - "pihole.${DOMAIN}"
+        - "pihole.${SECRET_DOMAIN}"
       tls:
         - hosts:
             - "pihole.${SECRET_DOMAIN}"
