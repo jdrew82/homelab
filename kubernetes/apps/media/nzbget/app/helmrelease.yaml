@@ -48,12 +48,20 @@ spec:
     #         targetPort: 6789
 
     ingress:
-      enabled: true
-      ingressClassName: internal
-      annotations:
-        hajimari.io/icon: simple-icons:nzbget
-      hosts:
-        - &host "nzbget.${SECRET_DOMAIN}"
-      tls:
-        - hosts:
-            - *host
+      main:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: "internal"
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          acme.cert-manager.io/http01-edit-in-place: "false"
+          nignx.ingress.kubernetes.io/force-ssl-redirect: "true"
+          external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+          external-dns.alpha.kubernetes.io/target: "${cloudflared_tunnel_uuid}.cfargotunnel.com"
+        hosts:
+          - host: "nzbget.${SECRET_DOMAIN}"
+            paths:
+              - path: "/"
+        tls:
+          - hosts:
+              - "nzbget.${SECRET_DOMAIN}"
+            secretName: "nzbget.${SECRET_DOMAIN}"
