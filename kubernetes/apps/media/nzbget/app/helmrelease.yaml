@@ -38,14 +38,14 @@ spec:
       #   enabled: true
       #   existingClaim: media
 
-    # service:
-    #   main:
-    #     enabled: true
-    #     type: ClusterIP
-    #     ports:
-    #       http:
-    #         port: 6789
-    #         targetPort: 6789
+    service:
+      main:
+        enabled: true
+        type: ClusterIP
+        ports:
+          http:
+            port: 6789
+            targetPort: 6789
 
     ingress:
       main:
