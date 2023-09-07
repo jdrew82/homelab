@@ -27,7 +27,7 @@ spec:
       repository: "pihole/pihole"
       tag: "2023.05.2"
       pullPolicy: IfNotPresent
-    replicaCount: 1
+    replicaCount: 0
     strategyType: RollingUpdate
     maxSurge: 1
     maxUnavailable: 1
