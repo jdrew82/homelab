@@ -79,7 +79,7 @@ spec:
         image: registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.8.0
 
     storageClasses:
-      - name: zfs-nfs
+      - name: freenas-nfs-csi
         defaultClass: false
         reclaimPolicy: Delete
         volumeBindingMode: Immediate
@@ -88,7 +88,7 @@ spec:
           fsType: nfs
           # csi.storage.k8s.io/fstype: nfs
         mountOptions:
-          - nfsvers=4.2
+          - nfsvers=4
           - nconnect=8
           - hard
         secrets:
@@ -107,3 +107,4 @@ spec:
       - name: zfs-nfs
         deletionPolicy: Retain
         parameters: {}
+  
