@@ -15,6 +15,7 @@ resources:
   - ./jetstack.yaml
   - ./k8s-gateway.yaml
   - ./kubernetes-dashboard.yaml
+  - ./kubernetes-sigs-nfs-charts.yaml
   - ./metrics-server.yaml
   - ./pihole-charts.yaml
   - ./prometheus-community.yaml
