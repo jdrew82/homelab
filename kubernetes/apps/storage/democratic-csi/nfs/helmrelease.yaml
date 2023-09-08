@@ -102,9 +102,3 @@ spec:
       existingConfigSecret: zfs-nfs-secret
       config:
         driver: zfs-generic-nfs
-
-    volumeSnapshotClasses:
-      - name: zfs-nfs
-        deletionPolicy: Retain
-        parameters: {}
-  
