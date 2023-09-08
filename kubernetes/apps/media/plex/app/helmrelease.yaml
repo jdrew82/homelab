@@ -5,80 +5,103 @@ metadata:
   name: plex
   namespace: media
 spec:
+  interval: 15m
   chart:
     spec:
       chart: app-template
       version: 1.5.1
-      interval: 30m
       sourceRef:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
-  interval: 30m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
   values:
-    controller:
-      type: statefulset
-      annotations:
-        reloader.stakater.com/auto: "true"
-
     image:
-      repository: "linuxserver/plex"
-      tag: "latest"
-
-    service:
-      main:
-        enabled: true
-        ports:
-          http:
-            port: 32400
-
+      repository: "ghcr.io/onedr0p/plex-beta"
+      tag: "rolling"
+    env:
+      TZ: "America/Chicago"
+      ADVERTISE_IP: "https://plex.${SECRET_DOMAIN}/"
+      PLEX_CLAIM: "${PLEX_CLAIM}"
+      PLEX_PREFERENCE_1: "LanNetworksBandwidth=192.168.100.0/24"
+      PLEX_PREFERENCE_2: "TranscoderQuality=0"
+      PLEX_PREFERENCE_3: "TranscoderH264BackgroundPreset=fast"
+    podSecurityContext:
+      runAsUser: 6666
+      runAsGroup: 6666
+      fsGroup: 6666
+      fsGroupChangePolicy: "OnRootMismatch"
     ingress:
       main:
         enabled: true
         ingressClassName: "external"
         annotations:
-          external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
-          nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+          hajimari.io/icon: mdi:plex
         hosts:
-          - host: &host "plex.${SECRET_DOMAIN}"
+          - host: "plex.${SECRET_DOMAIN}"
             paths:
-              - path: /
+              - path: "/"
                 pathType: Prefix
-        tls:
-          - hosts:
-              - *host
-
-    # persistence:
-    #   nfs-nas-media:
-    #     enabled: true
-    #     existingClaim: media-nfs-share-pvc
-    #     mountPath: /data
-    #     readOnly: false
-
-    #   transcode:
-    #     enabled: true
-    #     type: emptyDir
-
-    podSecurityContext:
-      runAsUser: 1000
-      runAsGroup: 1000
-      fsGroup: 1000
-      fsGroupChangePolicy: "OnRootMismatch"
-      supplementalGroups:
-        - 44
-        - 109
-        - 100
-
-    resources:
-      requests:
-        cpu: 100m
-        memory: 9248M
-      limits:
-        memory: 9248M
-
-    volumeClaimTemplates:
-      - name: config
-        mountPath: /config
+              
+    service:
+      main:
+        primary: true
+        ports:
+          http:
+            port: 32400
+            protocol: TCP
+          dlna-tcp:
+            port: 32469
+            protocol: TCP
+            enabled: true
+          dlna-udp:
+            port: 1900
+            protocol: UDP
+            enabled: true
+          plex-companion:
+            port: 3005
+            protocol: TCP
+            enabled: true
+          discovery-udp:
+            port: 5353
+            protocol: UDP
+            enabled: true
+          plex-roku:
+            port: 8324
+            protocol: TCP
+            enabled: true
+          gdm-32410:
+            port: 32410
+            protocol: UDP
+            enabled: true
+          gdm-32412:
+            port: 32412
+            protocol: UDP
+            enabled: true
+          gdm-32413:
+            port: 32413
+            protocol: UDP
+            enabled: true
+          gdm-32414:
+            port: 32414
+            protocol: UDP
+            enabled: true
+    persistence:
+      config:
+        enabled: true
+        type: pvc
         accessMode: ReadWriteOnce
         size: 50Gi
-        storageClass: local-path
+      transcode:
+        enabled: true
+        type: emptyDir
