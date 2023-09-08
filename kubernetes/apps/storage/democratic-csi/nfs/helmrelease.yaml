@@ -80,13 +80,12 @@ spec:
 
     storageClasses:
       - name: freenas-nfs-csi
-        defaultClass: false
+        defaultClass: true
         reclaimPolicy: Delete
         volumeBindingMode: Immediate
         allowVolumeExpansion: true
         parameters:
           fsType: nfs
-          # csi.storage.k8s.io/fstype: nfs
         mountOptions:
           - nfsvers=4
           - nconnect=8
