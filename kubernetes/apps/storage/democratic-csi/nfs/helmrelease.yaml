@@ -100,4 +100,4 @@ spec:
     driver:
       existingConfigSecret: zfs-nfs-secret
       config:
-        driver: zfs-generic-nfs
+        driver: freenas-api-nfs
