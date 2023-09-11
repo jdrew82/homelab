@@ -8,6 +8,6 @@ spec:
     requests:
       storage: 5Gi
   volumeMode: Filesystem
-  storageClassName: local-path
+  storageClassName: freenas-nfs-csi
   accessModes:
     - ReadWriteOnce
