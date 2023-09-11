@@ -64,7 +64,7 @@ spec:
       size: "2Gi"
     extraEnvVars:
       TZ: "America/Chicago"
-      WEBPASSWORD: ${PIHOLE_PASSWORD}
+      # WEBPASSWORD: ${PIHOLE_PASSWORD}
     DNS1: "1.1.1.1"
     DNS2: "1.0.0.2"
     adlists:
