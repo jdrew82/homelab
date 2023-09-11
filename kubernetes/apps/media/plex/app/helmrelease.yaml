@@ -99,7 +99,7 @@ spec:
     persistence:
       config:
         enabled: true
-        storageClassName: freenas-nfs-csi
+        storageClass: freenas-nfs-csi
         type: pvc
         accessMode: ReadWriteOnce
         size: 50Gi
