@@ -34,9 +34,9 @@ spec:
       config:
         enabled: true
         existingClaim: "nzbget-config"
-      # media:
-      #   enabled: true
-      #   existingClaim: media
+      media:
+        enabled: true
+        existingClaim: "media-nfs"
 
     service:
       main:
