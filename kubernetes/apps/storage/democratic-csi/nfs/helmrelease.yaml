@@ -6,7 +6,6 @@ metadata:
   namespace: storage
 spec:
   interval: 15m
-  releaseName: zfs-nfs
   chart:
     spec:
       chart: democratic-csi
