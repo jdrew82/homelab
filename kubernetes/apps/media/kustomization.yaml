@@ -6,4 +6,4 @@ resources:
   - ./nzbget/ks.yaml
   - ./dizquetv/ks.yaml
   - ./plex/ks.yaml
-  - .media_pvc.yaml
+  - ./media_pvc.yaml
