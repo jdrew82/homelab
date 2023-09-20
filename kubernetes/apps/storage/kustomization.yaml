@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./democratic-csi/ks.yaml
-  - ./nfs-provisioner/ks.yaml
+#  - ./nfs-provisioner/ks.yaml
