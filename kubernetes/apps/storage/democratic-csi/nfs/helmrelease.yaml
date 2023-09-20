@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: democratic-csi-nfs
+  name: zfs-nfs
   namespace: storage
 spec:
   interval: 15m
@@ -31,7 +31,7 @@ spec:
         patches:
           - target:
               kind: VolumeSnapshotClass
-              name: democratic-csi-nfs
+              name: zfs-nfs
             patch: |
               - op: add
                 path: /metadata/annotations/helm.toolkit.fluxcd.io~1driftDetection
