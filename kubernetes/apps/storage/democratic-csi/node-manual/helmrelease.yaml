@@ -60,7 +60,7 @@ spec:
           - --worker-threads=10
           - --extra-create-metadata
           - --csi-address=/csi-data/csi.sock
-          - --kubelet-registration-path="/appdata/appdata/kubelet"
+          - --kubelet-registration-path=/appdata/appdata/kubelet
 
       externalResizer:
         image: registry.k8s.io/sig-storage/csi-resizer:v1.8.0
