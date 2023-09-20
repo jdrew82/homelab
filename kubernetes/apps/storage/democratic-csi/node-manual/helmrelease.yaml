@@ -71,6 +71,8 @@ spec:
         secret.reloader.stakater.com/reload: zfs-nfs-secret
 
     node:
+      kubeletHostPath: /appdata/appdata/kubelet
+
       driver:
         image: ghcr.io/democratic-csi/democratic-csi:v1.8.3
 
