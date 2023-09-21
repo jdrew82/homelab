@@ -37,9 +37,9 @@ spec:
       PLEX_PREFERENCE_2: "TranscoderQuality=0"
       PLEX_PREFERENCE_3: "TranscoderH264BackgroundPreset=fast"
     podSecurityContext:
-      runAsUser: 6666
-      runAsGroup: 6666
-      fsGroup: 6666
+      runAsUser: 1000
+      runAsGroup: 1000
+      fsGroup: 1000
       fsGroupChangePolicy: "OnRootMismatch"
     ingress:
       main:
