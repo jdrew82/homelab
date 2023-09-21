@@ -27,8 +27,8 @@ spec:
     keepHistory: false
   values:
     image:
-      repository: "ghcr.io/onedr0p/plex-beta"
-      tag: "rolling"
+      repository: "linuxserver/plex"
+      tag: "latest"
     env:
       TZ: "America/Chicago"
       ADVERTISE_IP: "https://plex.${SECRET_DOMAIN}/"
