@@ -57,12 +57,14 @@ spec:
 
     service:
       main:
+        type: LoadBalancer
+        externalTrafficPolicy: Cluster
         annotations:
-          io.cilium/lb-ipam-ips: 192.168.100.12
-        primary: true
+          io.cilium/lb-ipam-ips: "192.168.100.12"
+        # primary: true
         ports:
           http:
-            port: 32400
+            port: #port 32400
             protocol: TCP
           dlna-tcp:
             port: 32469
