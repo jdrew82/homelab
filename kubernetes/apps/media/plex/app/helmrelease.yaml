@@ -56,9 +56,9 @@ spec:
                 pathType: Prefix
 
     service:
-      annotations:
-        io.cilium/lb-ipam-ips: 192.168.100.12
       main:
+        annotations:
+          io.cilium/lb-ipam-ips: 192.168.100.12
         primary: true
         ports:
           http:
