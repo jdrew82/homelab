@@ -19,7 +19,7 @@ metadata:
   name: media-nfs
 spec:
   capacity:
-    storage: 1Gi
+    storage: 50Ti
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
