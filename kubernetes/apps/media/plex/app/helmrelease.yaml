@@ -112,3 +112,9 @@ spec:
       transcode:
         enabled: true
         type: emptyDir
+        mountPath: /transcode
+      dri:
+        enabled: true
+        type: hostPath
+        mountPath: /dev/dri
+        hostPath: /dev/dri
