@@ -27,8 +27,8 @@ spec:
     keepHistory: false
   values:
     image:
-      repository: "docker.io/plexinc/pms-docker"
-      tag: "plexpass"
+      repository: "plexinc/pms-docker"
+      tag: "latest"
     env:
       TZ: "America/Chicago"
       ADVERTISE_IP: "https://plex.${SECRET_DOMAIN}/,http://192.168.100.12:32400"
