@@ -36,6 +36,8 @@ spec:
       PLEX_PREFERENCE_1: "LanNetworksBandwidth=192.168.100.0/24"
       PLEX_PREFERENCE_2: "TranscoderQuality=0"
       PLEX_PREFERENCE_3: "TranscoderH264BackgroundPreset=fast"
+      PLEX_UID: 1000
+      PLEX_GID: 1000
     podSecurityContext:
       runAsUser: 1000
       runAsGroup: 1000
